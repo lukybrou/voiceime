@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "qwen/qwen3-8b-flash",
+  "rules": [
+    "Read AGENTS.md before starting any task.",
+    "Read the full task file in tasks/ before writing any code.",
+    "Never hardcode API keys or tokens in any file.",
+    "Never commit local.properties or any file containing secrets.",
+    "Always run assembleDebug and confirm BUILD SUCCESSFUL before committing.",
+    "One task per commit. Use the commit message from the task file.",
+    "Do not modify AGENTS.md, opencode.json or task files unless explicitly instructed."
+  ],
+  "permissions": {
+    "bashCommand": {
+      "allow": [
+        "gradlew*",
+        "git *",
+        "gh *",
+        "powershell *",
+        "Invoke-WebRequest *"
+      ]
+    }
+  }
+}
