@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="220dp"
+    android:background="#1C1C1E">
+
+    <!-- ESTADO 1: Reposo — solo micrófono -->
+    <LinearLayout
+        android:id="@+id/estadoReposo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="220dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btnMicrofono"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/fondo_boton_microfono"
+            android:contentDescription="@string/boton_microfono"
+            android:foreground="@drawable/ic_microfono"
+            android:foregroundGravity="center"
+            android:stateListAnimator="@null"
+            android:text="" />
+
+    </LinearLayout>
+
+    <!-- ESTADO 2: Grabando -->
+    <LinearLayout
+        android:id="@+id/estadoGrabando"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="220dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtCronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="● 0:00"
+            android:textColor="#FF5252"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnMicrofonoGrabando"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/fondo_boton_microfono_activo"
+            android:contentDescription="Grabando"
+            android:foreground="@drawable/ic_microfono"
+            android:foregroundGravity="center"
+            android:stateListAnimator="@null"
+            android:text="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suelta para enviar"
+            android:textColor="#8E8E93"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+
+    <!-- ESTADO 3: Preparando -->
+    <LinearLayout
+        android:id="@+id/estadoPreparando"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="220dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#4CAF50"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preparando..."
+            android:textColor="#8E8E93"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- ESTADO 3: Sugerencias -->
+    <LinearLayout
+        android:id="@+id/estadoSugerencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <!-- Lienzo de texto -->
+        <TextView
+            android:id="@+id/txtTranscripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="80dp"
+            android:background="#2C2C2E"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4dp"
+            android:text=""
+            android:hint="Texto transcrito..."
+            android:textColorHint="#636366" />
+
+        <!-- Chips de versiones -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/contenedorChips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Los chips se añaden dinámicamente en código -->
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Botones de acción -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnInsertar"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Insertar"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnNuevaGrabacion"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text=""
+                android:foreground="@drawable/ic_microfono"
+                android:foregroundGravity="center"
+                android:backgroundTint="#3A3A3C"
+                android:contentDescription="Nueva grabación"
+                android:stateListAnimator="@null" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
