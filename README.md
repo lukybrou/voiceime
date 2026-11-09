@@ -29,9 +29,9 @@ VoiceIME es un teclado Android de código abierto con dictado por voz e IA. Puls
 2. Activa **Instalar desde fuentes desconocidas** en tu Android
 3. Instala el APK
 4. Ve a **Ajustes → Sistema → Teclados → Gestionar teclados** → activa VoiceIME
-5. En cualquier app, cambia el teclado a VoiceIME
-6. Pulsa ⚙️ → introduce tu [OpenAI API key](https://platform.openai.com/api-keys)
-7. Pulsa 🎙️ y habla
+5. En cualquier app, abre el teclado → pulsa el **globo 🌐** (o mantén pulsada la barra espaciadora) → selecciona **VoiceIME**
+6. Pulsa **⚙️** → introduce tu [OpenAI API key](https://platform.openai.com/api-keys)
+7. Pulsa **🎙️** → habla → elige versión (neutro / casual / corto) → pulsa **Insertar**
 
 ### Requisitos
 
@@ -58,9 +58,9 @@ VoiceIME is an open-source Android keyboard with voice dictation and AI. Tap the
 2. Enable **Install from unknown sources** on your Android device
 3. Install the APK
 4. Go to **Settings → System → Keyboards → Manage keyboards** → enable VoiceIME
-5. In any app, switch your keyboard to VoiceIME
-6. Tap ⚙️ → enter your [OpenAI API key](https://platform.openai.com/api-keys)
-7. Tap 🎙️ and speak
+5. In any app, open the keyboard → tap the **globe 🌐** (or long-press the space bar) → select **VoiceIME**
+6. Tap **⚙️** → enter your [OpenAI API key](https://platform.openai.com/api-keys)
+7. Tap **🎙️** → speak → choose a version (neutral / casual / short) → tap **Insert**
 
 ### Requirements
 
