@@ -1,5 +1,7 @@
 # VoiceIME 🎙️
 
+![VoiceIME Banner](https://raw.githubusercontent.com/lukybrou/voiceime/main/.github/banner.png)
+
 **ES** · Teclado Android con dictado por voz e IA · **EN** · Android keyboard with voice dictation and AI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
