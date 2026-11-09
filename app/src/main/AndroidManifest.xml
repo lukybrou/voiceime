@@ -28,6 +28,16 @@
                 android:resource="@xml/metodo_entrada" />
         </service>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:label="VoiceIME Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

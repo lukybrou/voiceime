@@ -28,6 +28,16 @@
             android:stateListAnimator="@null"
             android:text="" />
 
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:tint="#636366"
+            android:contentDescription="Settings"
+            android:layout_marginTop="16dp" />
+
     </LinearLayout>
 
     <!-- ESTADO 2: Grabando -->

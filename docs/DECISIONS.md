@@ -150,3 +150,20 @@ contradice ese gesto (el click se dispara al soltar: el boton quedaba
 verde mientras se hablaba). Cambiado a OnTouchListener: ACTION_DOWN
 inicia escucha, ACTION_UP/CANCEL la detiene. Ademas startListening
 destruye el recognizer anterior (evita fuga de instancias).
+
+---
+
+## [EJECUTOR] - Notas T007 (settings + release limpia)
+
+**Fecha:** 2026-10-29
+
+- SettingsActivity usa android.app.Activity (AppCompatActivity exigiria
+anadir androidx.appcompat sin aprobar).
+- Eliminado buildConfigField OPENAI_API_KEY: el APK publico no debe
+transportar ninguna key (ApiKeyManager/EncryptedSharedPreferences).
+- security-crypto y sus deps de Google Maven se sirven desde un repo
+maven local 'vendor-repo/' (la red intercepta SSL de dl.google.com y
+Java no puede descargar). Anadido a settings.gradle.kts.
+- ?attr/selectableItemBackgroundBorderless -> ?android:attr/... (attr de
+framework, no hay tema AppCompat).
+- 'Claude outputs/' a .gitignore: material interno del planificador.

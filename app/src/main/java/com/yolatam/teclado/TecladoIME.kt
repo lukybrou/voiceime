@@ -1,5 +1,6 @@
 package com.yolatam.teclado
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.inputmethodservice.InputMethodService
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.coroutines.CoroutineScope
@@ -53,7 +55,8 @@ class TecladoIME : InputMethodService() {
     override fun onCreate() {
         super.onCreate()
         transcriptionEngine = GoogleTranscriptionEngine(this)
-        suggestionEngine = OpenAISuggestionEngine(BuildConfig.OPENAI_API_KEY)
+        val apiKey = ApiKeyManager.getOpenAiKey(this)
+        suggestionEngine = OpenAISuggestionEngine(apiKey)
     }
 
     override fun onCreateInputView(): View {
@@ -66,6 +69,13 @@ class TecladoIME : InputMethodService() {
         txtTranscripcion = view.findViewById(R.id.txtTranscripcion)
         txtCronometro = view.findViewById(R.id.txtCronometro)
         contenedorChips = view.findViewById(R.id.contenedorChips)
+
+        view.findViewById<ImageButton>(R.id.btnSettings).setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            startActivity(intent)
+        }
 
         view.findViewById<Button>(R.id.btnMicrofono).setOnTouchListener { v, event ->
             when (event.actionMasked) {
@@ -80,6 +90,18 @@ class TecladoIME : InputMethodService() {
                     transcriptionEngine.startListening(
                         onResult = { crudo ->
                             Log.d("TecladoIME", "Resultado: $crudo")
+                            val key = ApiKeyManager.getOpenAiKey(this@TecladoIME)
+                            if (key.isBlank()) {
+                                Log.e("TecladoIME", "Sin API key configurada")
+                                mostrarEstado(PanelEstado.REPOSO)
+                                android.widget.Toast.makeText(
+                                    this@TecladoIME,
+                                    "Configura tu API key en ajustes de VoiceIME",
+                                    android.widget.Toast.LENGTH_LONG
+                                ).show()
+                                return@startListening
+                            }
+                            suggestionEngine = OpenAISuggestionEngine(key)
                             textoCrudo = crudo
                             mostrarEstado(PanelEstado.PREPARANDO)
                             servicioScope.launch {
