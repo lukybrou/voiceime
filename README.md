@@ -83,6 +83,10 @@ VoiceIME is an open-source Android keyboard with voice dictation and AI. Tap the
 | [`SECURITY.md`](SECURITY.md) | Reporte de vulnerabilidades · Vulnerability reporting |
 | [`PRIVACY.md`](PRIVACY.md) | Política de privacidad · Privacy policy |
 
+## Comunidad · Community
+
+💬 [Discussions](https://github.com/lukybrou/voiceime/discussions) — Comparte tu experiencia, ideas o dudas · Share your experience, ideas or questions
+
 ## Contribuir · Contributing
 
 Lee [`CONTRIBUTING.md`](CONTRIBUTING.md) · Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
@@ -90,5 +94,4 @@ Lee [`CONTRIBUTING.md`](CONTRIBUTING.md) · Read [`CONTRIBUTING.md`](CONTRIBUTIN
 ## Licencia · License
 
 [MIT](LICENSE) © [Douglas Ortega](https://github.com/lukybrou)
-
 
